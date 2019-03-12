@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+            <div class="input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input id="icon_prefix" type="text" spellcheck="false" />
+                    <label for="icon_prefix">Search countries!</label>                      
+                </div>
+    </div>
+</div>
+
+<div class="container">
+        {% for country in countries %}
+        <h4>{{country}}</h4>
+        {% endfor%}
+</div>
+
+{% endblock %}

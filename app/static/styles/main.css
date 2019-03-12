@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Cuprum|Thasadith");
+@import url("https://fonts.googleapis.com/css?family=Abel");
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EBEFF2;
+    opacity: 0.9;
+}
+
+.nav-wrapper {
+    background-color: #A6975A;
+    padding-left: 20px;
+    color: black;
+}
+
+.sitetitle {
+    font-family: 'Cuprum', sans-serif;
+    font-size: 32px;
+}
+
+.searchrow {
+    max-width: 50%;
+}
+
+.material-icons {
+    color: #1a237e !important;
+}
+
+.material-icons.active {
+    color: #A6975A !important;
+}
+
+.input-field input[type=text]+label, .materialize-textarea:focus:not([readonly])+label {
+    color: #1a237e !important;
+}
+
+.input-field input[type=text], .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1a237e !important;
+    box-shadow: 0 1px 0 0 #1a237e !important;
+}
+
+.input-field input[type=text]:focus+label, .materialize-textarea:focus:not([readonly])+label {
+    color: #A6975A !important;
+}
+
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #A6975A !important;
+    box-shadow: 0 1px 0 0 #A6975A !important;
+}
+@media (max-width:600px) {
+    .sitetitle {
+        font-size: 20px;
+    }
+    .searchrow {
+        max-width: 90%;
+    }
+}
