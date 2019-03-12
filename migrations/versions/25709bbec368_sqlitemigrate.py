@@ -1,8 +1,8 @@
 """sqlitemigrate
 
-Revision ID: e50907a5987b
+Revision ID: 25709bbec368
 Revises: 
-Create Date: 2019-03-12 17:28:57.723361
+Create Date: 2019-03-12 18:48:54.827537
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e50907a5987b'
+revision = '25709bbec368'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,8 +21,8 @@ def upgrade():
     op.create_table('Countries',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('enabled', sa.Boolean(), nullable=False),
-    sa.Column('code31', sa.String(length=3), nullable=False),
-    sa.Column('code21', sa.String(length=3), nullable=False),
+    sa.Column('code3l', sa.String(length=3), nullable=False),
+    sa.Column('code2l', sa.String(length=3), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('name_official', sa.String(length=200), nullable=False),
     sa.Column('flag_32', sa.String(length=200), nullable=False),
