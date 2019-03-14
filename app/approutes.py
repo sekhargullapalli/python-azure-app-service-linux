@@ -13,6 +13,23 @@ def index():
     countries = Countries.query.order_by(Countries.name)
     return render_template('index.html',countries=countries)
 
+@app.route('/searchcountries/<searchstring>')
+def searchcountries(searchstring):        
+    """
+    Ajax route for search filter
+    """    
+    try:
+        countries = Countries.query.order_by(Countries.name)               
+        matcheditems = []   
+        for item in countries:
+            if (item.name.lower().find(searchstring.lower()) != -1 or item.name_official.lower().find(searchstring.lower()) != -1):                
+                matcheditems.append(item.id)    
+        resp = jsonify(matcheditems)
+        resp.status_code=200
+        return resp
+    except Exception as e:
+        raise Exception (str(e)) 
+
 @app.errorhandler(404)
 def page_not_found_err(err):
     return render_template('notfound.html')

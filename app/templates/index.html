@@ -4,19 +4,51 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
+    <div class="row searchrow">
             <div class="input-field col s12">
                     <i class="material-icons prefix">search</i>
                     <input id="icon_prefix" type="text" spellcheck="false" />
-                    <label for="icon_prefix">Search countries!</label>                      
+                    <label for="icon_prefix">Search countries by name!</label>                      
                 </div>
     </div>
 </div>
 
-<div class="container">
-        {% for country in countries %}
-        <h4>{{country}}</h4>
+<div class="container row flagscontainer">
+        {% for country in countries %}      
+        <div class="col s12 m6 l4 xl3 flagcol z-depth-1" id="flagcard{{country.id}}">                  
+          <div class="row  valign-wrapper">
+                <img src="{{url_for('static', filename='resources/flags/' + country.flag_128)}}" class="col s3 flagicon">
+                <div class="col s9">
+                        <!-- <p class="cname tooltipped" data-position="bottom" data-html="true" data-tooltip="<p style='font-size:12px'>{{country.name_official}}</p>">{{country.name}}</p> -->
+                        <p class="cname">{{country.name}}</p>
+                </div>
+          </div>
+        </div>          
         {% endfor%}
 </div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {     
+                var searcher = document.getElementById('icon_prefix');
+                searcher.addEventListener('keypress', function(e){ 
+                        if(e.which == 13 || e.keyCode == 13) {
+                        $(".flagcol").hide();                
+                        $.get('/searchcountries/'+searcher.value, function (result){                    
+                                $.each(result, function (i, field){                        
+                                $("#flagcard"+field).show();
+                                });          
+                        });
+                        }
+                }, false);
+                searcher.addEventListener('keyup', function(e){ 
+                        if(searcher.value == "") $(".flagcol").show();                
+                }, false);   
+                var elems = document.querySelectorAll('.tooltipped');
+                var instances = M.Tooltip.init(elems, {
+                enterDelay:200
+                });      
+        
+                });    
+</script>
 
 {% endblock %}
