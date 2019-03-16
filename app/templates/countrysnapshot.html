@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>{{country.name}}</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Cuprum|Thasadith");
+        @import url("https://fonts.googleapis.com/css?family=Abel");
+
+       
+        .countrytitle {
+            color: black;
+            font-size: 32px;
+            font-family: 'Cuprum', sans-serif;
+        }
+        .countrysubtitle {
+            color: black;
+            font-size: 18px;
+            font-family: 'Abel', sans-serif;
+        }
+        .titlerow {max-height: 30px !important;}        
+    </style>
+</head>
+
+<body>
+    <div class="row  valign-wrapper">
+        <img src="{{url_for('static', filename='resources/flags/' + country.flag_32)}}"
+            data-source="/countrydetails/{{country.id}}" class="col s3 flagicon">
+        <div class="col s9">            
+            <p class="countrytitle" data-source="/countrydetails/{{country.id}}">{{country.name}}</p>
+        </div>        
+    </div>
+    <div class="titlerow"><p class="countrysubtitle">{{country.name_official}}</p></div>    
+    <iframe
+        src="https://maps.google.com/maps?q={{country.latitude}},{{country.longitude}}&hl=en&z={{country.zoom-1}}&amp;output=embed"
+        width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+</body>
+
+</html>

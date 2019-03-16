@@ -30,10 +30,20 @@ def searchcountries(searchstring):
     except Exception as e:
         raise Exception (str(e)) 
 
+@app.route('/countrydetails/<id>')
+def countrydetails(id):
+    try:        
+        country = Countries.query.filter(Countries.id==id)        
+        if country.count()==0:            
+            raise Exception('Unknown Country!')        
+        return render_template('countrysnapshot.html', country=country[0])
+    except Exception as e:        
+        raise Exception(str(e))
+
 @app.errorhandler(404)
 def page_not_found_err(err):
     return render_template('notfound.html')
 
 @app.errorhandler(Exception)
-def unhandled_exception(e):
+def unhandled_exception(e):    
     return render_template('err.html',e=e)
