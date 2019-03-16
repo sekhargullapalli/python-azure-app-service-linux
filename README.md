@@ -1,7 +1,12 @@
 # *** Under Development ***
 
 # About
-A simple static flask web application and demonstration of direct deployment to Azure app service on Linux
+A simple static flask web application and demonstration of direct deployment to Azure app service on Linux.
+
+The application is also hosted for a short period [here](http://countries.eu.pythonanywhere.com/)
+
+![](/appcapture.jpg)
+
 
 # How to Use
 Clone this repository
