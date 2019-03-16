@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Cuprum|Thasadith");
 @import url("https://fonts.googleapis.com/css?family=Abel");
+@import url("https://fonts.googleapis.com/css?family=Barlow+Condensed");
+
 :root {
     --main-theme: #34495E;
     --main-bg: #EBEFF2;
@@ -116,4 +118,31 @@ body {
         max-width: 550px !important;
         max-height: 700px !important;
     }
+}
+.message404{
+    font-size:145px;
+    color: black;
+    font-family: 'Barlow Condensed', sans-serif; 
+    font-weight: bold;
+}
+.message4042{
+    font-size:55px;
+    color: black;
+    font-family: 'Barlow Condensed', sans-serif; 
+    font-weight: bold;
+}
+
+@media (max-width:600px){
+    .message404{
+        font-size:90px;
+        color: black;
+        font-family: 'Barlow Condensed', sans-serif; 
+        font-weight: bold;
+    }
+    .message4042{
+        font-size:36px;
+        color: black;
+        font-family: 'Barlow Condensed', sans-serif; 
+        font-weight: bold;
+    }    
 }
