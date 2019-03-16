@@ -2,78 +2,88 @@
 
 {% block content %}
 
+<div class="fixed-action-btn">
+        <a class="btn-floating btn-medium red" href="#top">
+        <i class="large material-icons">arrow_upward</i>
+        </a>
+</div>
+
 <div class="container">
-    <div class="row searchrow">
-            <div class="input-field col s12">
-                    <i class="material-icons prefix">search</i>
-                    <input id="icon_prefix" type="text" spellcheck="false" />
-                    <label for="icon_prefix">Search countries by name!</label>                      
+        <div class="row searchrow">
+                <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input id="icon_prefix" type="text" spellcheck="false" />
+                        <label for="icon_prefix">Search countries by name!</label>
                 </div>
-    </div>    
+        </div>
 </div>
 
 <div id="modal1" class="modal">
         <div class="modal-footer">
                 <a class="modal-close waves-effect waves-green btn-flat">Close</a>
         </div>
-        <div class="modal-content">                                
+        <div class="modal-content">
         </div>
 </div>
 <div class="container row flagscontainer">
-        {% for country in countries %}    
-        {% if  loop.index % 2 == 0 %}  
-        <div class="col s12 m6 l4 xl4 flagcol z-depth-1 animated slideInRight slow modaltrig" data-source="/countrydetails/{{country.id}}"  id="flagcard{{country.id}}">                  
-        {% else %}
-        <div class="col s12 m6 l4 xl4 flagcol z-depth-1 animated slideInLeft slow modaltrig" data-source="/countrydetails/{{country.id}}"  id="flagcard{{country.id}}">                  
-        {% endif%}  
-          <div class="row  valign-wrapper">
-                <img src="{{url_for('static', filename='resources/flags/' + country.flag_128)}}" data-source="/countrydetails/{{country.id}}" class="col s3 flagicon">
-                <div class="col s9">
-                        <!-- <p class="cname tooltipped" data-position="bottom" data-html="true" data-tooltip="<p style='font-size:12px'>{{country.name_official}}</p>">{{country.name}}</p> -->
-                        <p class="cname" data-source="/countrydetails/{{country.id}}">{{country.name}}</p>
+        {% for country in countries %}
+        {% if  loop.index % 2 == 0 %}
+        <div class="col s12 m6 l4 xl4 flagcol z-depth-1 animated slideInRight slow modaltrig"
+                data-source="/countrydetails/{{country.id}}" id="flagcard{{country.id}}">
+                {% else %}
+                <div class="col s12 m6 l4 xl4 flagcol z-depth-1 animated slideInLeft slow modaltrig"
+                        data-source="/countrydetails/{{country.id}}" id="flagcard{{country.id}}">
+                        {% endif%}
+                        <div class="row  valign-wrapper">
+                                <img src="{{url_for('static', filename='resources/flags/' + country.flag_128)}}"
+                                        data-source="/countrydetails/{{country.id}}" class="col s3 flagicon">
+                                <div class="col s9">
+                                        <!-- <p class="cname tooltipped" data-position="bottom" data-html="true" data-tooltip="<p style='font-size:12px'>{{country.name_official}}</p>">{{country.name}}</p> -->
+                                        <p class="cname" data-source="/countrydetails/{{country.id}}">{{country.name}}
+                                        </p>
+                                </div>
+                        </div>
                 </div>
-          </div>
-        </div>          
-        {% endfor%}
-</div>
+                {% endfor%}
+        </div>
 
-<script>
-        document.addEventListener('DOMContentLoaded', function() {     
-                
-                var searcher = document.getElementById('icon_prefix');
-                
-                searcher.addEventListener('keypress', function(e){ 
-                        if(e.which == 13 || e.keyCode == 13) {
-                        $(".flagcol").hide();                
-                        $.get('/searchcountries/'+searcher.value, function (result){                    
-                                $.each(result, function (i, field){                        
-                                $("#flagcard"+field).show();
-                                });          
+        <script>
+                document.addEventListener('DOMContentLoaded', function () {
+
+                        var searcher = document.getElementById('icon_prefix');
+
+                        searcher.addEventListener('keypress', function (e) {
+                                if (e.which == 13 || e.keyCode == 13) {
+                                        $(".flagcol").hide();
+                                        $.get('/searchcountries/' + searcher.value, function (result) {
+                                                $.each(result, function (i, field) {
+                                                        $("#flagcard" + field).show();
+                                                });
+                                        });
+                                }
+                        }, false);
+
+                        searcher.addEventListener('keyup', function (e) {
+                                if (searcher.value == "") $(".flagcol").show();
+                        }, false);
+
+                        var elems = document.querySelectorAll('.tooltipped');
+                        var instances = M.Tooltip.init(elems, {
+                                enterDelay: 200
                         });
-                        }
-                }, false);
-                
-                searcher.addEventListener('keyup', function(e){ 
-                        if(searcher.value == "") $(".flagcol").show();                
-                }, false);   
+                });
+                $(document).ready(function () {
 
-                var elems = document.querySelectorAll('.tooltipped');
-                var instances = M.Tooltip.init(elems, {
-                enterDelay:200
-                });       
-        });    
-        $(document).ready(function(){
-                
-                $('.modaltrig').bind('click',()=>{                                   
-                        var ajaxurl = event.currentTarget.getAttribute("data-source");                        
-                        console.log(ajaxurl);
-                        $.get(ajaxurl, function (result){                                
-                                $('.modal').modal(); 
-                                $(".modal-content").html(result);
-                                $('.modal').modal('open');
-                        });                                                               
-                });               
-        });     
-</script>
+                        $('.modaltrig').bind('click', () => {
+                                var ajaxurl = event.currentTarget.getAttribute("data-source");
+                                console.log(ajaxurl);
+                                $.get(ajaxurl, function (result) {
+                                        $('.modal').modal();
+                                        $(".modal-content").html(result);
+                                        $('.modal').modal('open');
+                                });
+                        });
+                });     
+        </script>
 
-{% endblock %}
+        {% endblock %}
