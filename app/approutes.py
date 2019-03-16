@@ -42,8 +42,8 @@ def countrydetails(id):
 
 @app.errorhandler(404)
 def page_not_found_err(err):
-    return render_template('notfound.html')
+    return render_template('notfound.html'), 404
 
 @app.errorhandler(Exception)
 def unhandled_exception(e):    
-    return render_template('err.html',e=e)
+    return render_template('err.html',e=e), 500

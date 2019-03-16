@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}}
+{% block content %}
+<style>
+    .errdiv {
+        position: relative;
+        width: 90vw;
+        height: 70vh !important;
+        top:50px;
+        left: 5%;
+        background-image: url("{{url_for('static', filename='resources/err.jpg')}}");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+</style>
+<div class="errdiv">
+    <div class="container center">
+        <div class="row message404">
+            500
+        </div>
+        <div class="row message4043">
+            {{e}}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -131,6 +131,12 @@ body {
     font-family: 'Barlow Condensed', sans-serif; 
     font-weight: bold;
 }
+.message4043{
+    font-size:36px;
+    color: black;
+    font-family: 'Barlow Condensed', sans-serif; 
+    font-weight: bold;
+}
 
 @media (max-width:600px){
     .message404{
@@ -145,4 +151,10 @@ body {
         font-family: 'Barlow Condensed', sans-serif; 
         font-weight: bold;
     }    
+    .message4043{
+        font-size:18px;
+        color: black;
+        font-family: 'Barlow Condensed', sans-serif; 
+        font-weight: bold;
+    }
 }

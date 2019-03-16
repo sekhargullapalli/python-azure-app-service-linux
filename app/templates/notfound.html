@@ -2,18 +2,21 @@
 {% block content %}
 <style>
     .nfdiv {
-        width: 100%;
-        height: 100vh !important;
+        position: relative;
+        width: 90vw;
+        height: 70vh !important;
+        top:50px;
+        left: 5%;
         background-image: url("{{url_for('static', filename='resources/notfound.jpg')}}");
         background-repeat: no-repeat;
         background-size: 100% 100%;
     }
 </style>
 <div class="nfdiv">
-    <div class="container">
+    <div class="container center">
         <div class="row message404">
             404
-        </div><br>
+        </div>
         <div class="row message4042">
             Not found...
         </div>
