@@ -1,5 +1,3 @@
-# *** Under Development ***
-
 # About
 A simple static flask web application and demonstration of direct deployment to Azure app service on Linux.
 
@@ -9,7 +7,32 @@ The application is also hosted for a short period [here](http://countries.eu.pyt
 
 
 # How to Use
-Clone this repository
+
+## a. Test the web application locally.
+
+1. Clone this repository and cd to the project directory
+
+    `git clone https://github.com/sekhargullapalli/python-azure-app-service-linux.git`
+
+    `cd python-azure-app-service-linux`
+
+2. Create a virtual environment and activate it
+
+    `python -m venv venv --prompt "#countriesenv"`
+
+    `venv\Scripts\activate`
+
+3. Install requirements and run the application
+    
+    `pip install -r requirements.txt`
+
+    `flask run`
+
+4. Navigate to http://127.0.0.1:5000/ 
+
+## b. Deployment to Azure App Service on Linux
+
+    The deployment instructions are listed [here](/azureappdeployment.md)
 
 # Acknowledgement
 The images and the data for this applicaiton is cloned from
