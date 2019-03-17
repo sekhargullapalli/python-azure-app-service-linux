@@ -8,11 +8,11 @@ The supported versions of Python can be listed using
 
 `az webapp list-runtimes –linux | grep PYTHON` 
 
-![](/siteimages/pythonversions.Jpg)
+![](/siteimages/pythonversions.jpg)
 
 In the first step, create a directory and clone the repository from github. In case of a private repository, the user will be prompted to provide the user name and password. If your repository is in a different azure ad tenant (for example on your organization Azure devops), It works by providing a blank user name and a personal access token of your repository as password. 
 
-![](/siteimages/gitclone.Jpg)
+![](/siteimages/gitclone.jpg)
 
 The web application can now be deployed using the following command:
 
@@ -24,17 +24,17 @@ The locations for your subscriptions can be obtained using
 
 Note that free and shared SKUs are not available for apps running on Linux. The minimalistic tier than would be B1, which I used here. On the date of publishing, the B1 instance in west Europe costs around USD 39/ Month. 
 
-![](/siteimages/deployment.Jpg)
+![](/siteimages/deployment.jpg)
 
 With this the site is up and running. The resource group of the application can be changed from the dashboard.
 
-![](/siteimages/siteup.Jpg)
+![](/siteimages/siteup.jpg)
 
 The python version for the current app can be obtained by using the command:
 
 `az webapp config show --resource-group <resource_group_name> --name <app_name> --query linuxFxVersion`
 
-![](/siteimages/pythonversionapp.Jpg)
+![](/siteimages/pythonversionapp.jpg)
 
 A specific Python version can be set for the app service using the command:
 
