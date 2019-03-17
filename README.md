@@ -32,11 +32,13 @@ The application is also hosted for a short period [here](http://countries.eu.pyt
 
 ## b. Deployment to Azure App Service on Linux
 
-    The deployment instructions are listed [here](/azureappdeployment.md)
+The deployment instructions can be found [here](/azureappdeployment.md)
+
 
 # Acknowledgement
 The images and the data for this applicaiton is cloned from
 https://github.com/cristiroma/countries
+
 
 # Useful Links/ References
 Detailed instructions on publishing Python apps to Azure app service can be found [here](https://docs.microsoft.com/en-us/visualstudio/python/publishing-python-web-applications-to-azure-from-visual-studio?view=vs-2017)
@@ -44,6 +46,7 @@ Detailed instructions on publishing Python apps to Azure app service can be foun
 [Azure CLI reference](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)
 
 [Flask Reference](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+
 
 # License
 
